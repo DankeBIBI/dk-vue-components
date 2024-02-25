@@ -1,25 +1,40 @@
 <script setup lang="ts">
-import { tableOptions } from "./type";
+import { onMounted } from "vue";
+import { __tableOptions } from "./type";
+import elColumn from "./components/column";
 type propType = {
-	tableOptions: tableOptions;
+	tableOptions: __tableOptions;
 };
 const props = withDefaults(defineProps<propType>(), {
 	tableOptions: "" as any,
 });
-const { tableData, tableColumns } = props.tableOptions();
-console.log("🚀 -- 》》 ~ tableColumns:", tableColumns);
+const { tableData, tableColumns, init } = props.tableOptions();
+onMounted(() => {
+	// ready();
+});
 </script>
 <template>
-	<div class="">
-		<el-table :data="tableData" style="width: 100%">
-			<el-table-column
-				v-for="(item, index) in tableColumns"
-				:key="item.prop + index"
-				:prop="item.prop"
-				:label="item.label"
-				:width="item.width"
-			/>
+	<div class="dkTable">
+		<div class="dkTable_menuBar">
+			<el-button
+				@click="
+					() => {
+						tableData = [];
+						init();
+					}
+				"
+				>刷新</el-button
+			>
+		</div>
+		<el-table :data="tableData" border style="width: 100%; height: 100%">
+			<component :is="elColumn(tableColumns)" />
 		</el-table>
 	</div>
 </template>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.dkTable {
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+}
+</style>

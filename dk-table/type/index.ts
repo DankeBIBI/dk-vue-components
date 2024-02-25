@@ -1,7 +1,8 @@
 import { Ref } from "vue";
 export type __tableOptionsCallback = {
     tableData: Ref<any[]> | any[];
-    tableColumns: Ref<__tableColumn[]> | __tableColumn[]
+    tableColumns: Ref<__tableColumn[]> | __tableColumn[],
+    init: Function
 }
 export type __tableOptions = () => __tableOptionsCallback
 export interface __tableColumn {
@@ -10,7 +11,7 @@ export interface __tableColumn {
     /**	字段名称 对应列内容的字段名， 也可以使用 property属性 */
     prop: string
     /**对应列的宽度 */
-    width: string | number
+    width?: string | number
     /**对应列的类型。 如果设置了selection则显示多选框； 如果设置了 index 则显示该行的索引（从 1 开始计算）； 如果设置了 expand 则显示为一个可展开的按钮 */
     type?: 'selection' | 'index' | 'expand'
     /**	如果设置了 type=index，可以通过传递 index 属性来自定义索引 */
@@ -21,5 +22,5 @@ export interface __tableColumn {
     fixed?: true | 'left' | 'right'
     /**当内容过长被隐藏时显示 tooltip */
     tooltip?: boolean
-    cellRander?: ({ row, column, $index }) => {}
+    cellRander?: ({ row, column, $index }) => any
 }
