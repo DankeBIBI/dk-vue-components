@@ -2,9 +2,30 @@ import { Ref } from "vue";
 export type __tableOptionsCallback = {
     tableData: Ref<any[]> | any[];
     tableColumns: Ref<__tableColumn[]> | __tableColumn[],
-    init: Function
+    init: __tableInit,
+    loading: __tableLoading,
+    pagination: __tablePagination
 }
 export type __tableOptions = () => __tableOptionsCallback
+export type __tableInit = (e?: {
+    page: number,
+    limit: number
+}) => any
+export type __tableLoading = {
+    loading: boolean,
+    background: string,
+    tip: string,
+    svg: {
+        position: string,
+        src: string
+    }
+}
+export type __tablePagination = {
+    page: number,
+    limit: number,
+    pageSize: number[],
+    total: number,
+}
 export interface __tableColumn {
     /**	显示的标题 */
     label: string
