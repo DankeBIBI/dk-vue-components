@@ -2,15 +2,15 @@ import { Ref } from "vue";
 export type __tableOptionsCallback = {
     tableData: Ref<any[]> | any[];
     tableColumns: Ref<__tableColumn[]> | __tableColumn[],
-    init: __tableInit,
+    init: (e?: __tableInit) => any,
     loading: __tableLoading,
     pagination: __tablePagination
 }
 export type __tableOptions = () => __tableOptionsCallback
-export type __tableInit = (e?: {
+export type __tableInit = {
     page: number,
     limit: number
-}) => any
+}
 export type __tableLoading = {
     loading: boolean,
     background: string,
