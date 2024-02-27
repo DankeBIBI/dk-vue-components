@@ -1,0 +1,11 @@
+{
+  "name": "dk-vue-components",
+  "version": "1.0.0",
+  "description": "表单组件、控制台常用组件",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
