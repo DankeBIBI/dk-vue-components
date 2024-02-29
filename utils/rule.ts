@@ -1,4 +1,4 @@
-import { __dkFormOptions, __dkItemOptions } from "../type";
+import { __dkFormOptions, __dkItemOptions } from "../dk-form/type";
 
 /**生成校验规则 */
 export function buildFormRule(options: __dkFormOptions) {

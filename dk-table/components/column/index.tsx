@@ -1,9 +1,11 @@
+import { Ref } from "vue";
 import { __tableColumn } from "../../type";
+import { vRef } from "../../../utils/computed";
 
-export default (option: __tableColumn[]) => (
+export default (option: __tableColumn[] | Ref<__tableColumn[]>) => (
     <>
         {
-            option.map((item, index) => {
+            vRef(option).map((item, index) => {
                 return (
                     <el-table-column
                         key={item.prop + index}

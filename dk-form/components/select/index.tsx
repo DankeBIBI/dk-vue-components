@@ -1,5 +1,5 @@
 import { __dkItemOptions, __dkItemSelectOptions } from "../../type";
-import { vRef } from "../../utils/computed";
+import { vRef } from "../../../utils/computed";
 /**
  * @description 下拉选择模块
  * @author Dankebibi

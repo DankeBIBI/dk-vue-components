@@ -2,7 +2,7 @@
 import { DKID } from "strap-trousers";
 import { onMounted, ref, reactive } from "vue";
 import { getComponent } from "./components/export.t";
-import { buildFormRule, buildFormModel } from "./utils/rule";
+import { buildFormModel,buildFormRule} from "../utils/rule";
 import { pRef } from "./components/data";
 type propsType = {
 	options: dkFormOptions;
@@ -47,3 +47,4 @@ defineExpose({ formModel, ruleFormRef, pRef });
 <style lang="scss" scoped>
 @import "./style/index.scss";
 </style>
+../utils/rule
