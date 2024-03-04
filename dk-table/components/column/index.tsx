@@ -14,6 +14,7 @@ export default (option: __tableColumn[] | Ref<__tableColumn[]>) => (
                         width={item.width ?? '100'}
                         fixed={item.fixed ?? false}
                         show-overflow-tooltip={item.tooltip ?? false}
+                        align={item.align ?? 'center'}
                     >
                         {
 

@@ -43,5 +43,7 @@ export interface __tableColumn {
     fixed?: true | 'left' | 'right'
     /**当内容过长被隐藏时显示 tooltip */
     tooltip?: boolean
-    cellRander?: ({ row, column, $index }) => any
+    cellRander?: ({ row, column, $index }) => any,
+    /**表头对齐方式， 若不设置该项，则使用表格的对齐方式 */
+    align:'left' | 'center' | 'right'
 }
