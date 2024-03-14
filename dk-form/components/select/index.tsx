@@ -29,3 +29,4 @@ export default (option: __dkItemOptions, vModel: any) => (
         </el-select>
     </>
 )
+const a = '' as __DK_VUE_COMPONENTS_EXPORT
