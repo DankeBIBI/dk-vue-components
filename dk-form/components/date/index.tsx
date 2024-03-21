@@ -13,6 +13,9 @@ export default (option: __dkItemOptions, vModel: any) => (
                     v-model={vModel[option.prop]}
                     type="date"
                     placeholder="Pick a date"
+                    onChange={e => {
+                        option.trigger && option.trigger.change && option.trigger.change({ value: e, item: option })
+                    }}
                 /> : null
         }
         {
@@ -21,6 +24,9 @@ export default (option: __dkItemOptions, vModel: any) => (
                     v-model={vModel[option.prop]}
                     type="month"
                     placeholder="Pick a month"
+                    onChange={e => {
+                        option.trigger && option.trigger.change && option.trigger.change({ value: e, item: option })
+                    }}
                 /> : null
         }
         {
@@ -29,6 +35,9 @@ export default (option: __dkItemOptions, vModel: any) => (
                     v-model={vModel[option.prop]}
                     type="year"
                     placeholder="Pick a year"
+                    onChange={e => {
+                        option.trigger && option.trigger.change && option.trigger.change({ value: e, item: option })
+                    }}
                 /> : null
         }
     </>
