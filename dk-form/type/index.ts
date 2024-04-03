@@ -1,8 +1,8 @@
 import type { FormInstance, UploadUserFile } from "element-plus";
 /**dk表单类型 */
-type __dkFormOptions = __dkItemOptions[];
+type dkFormOptions = dkItemOptions[];
 /**dk表单项类型 */
-interface __dkItemOptions {
+interface dkItemOptions {
     /**字段 */
     prop: string;
     /**标题 */
@@ -12,9 +12,9 @@ interface __dkItemOptions {
     /**是否必填 */
     required?: boolean;
     /**dk表单项类型 */
-    type: __dkItemType;
+    type: dkItemType;
     /**选项 */
-    selectOptions?: __dkItemSelectOptions[];
+    selectOptions?: dkItemSelectOptions[];
     placeholder?: string;
     /**可选配置 */
     options?: {};
@@ -42,7 +42,7 @@ interface __dkItemOptions {
     /**尺寸 */
     size?: "" | "large" | "default" | "small";
 }
-type __dkItemType =
+type dkItemType =
     /**输入框 */
     | "input"
     /**单选框*/
@@ -60,22 +60,22 @@ type __dkItemType =
     /**上传 */
     | "upload";
 /**dk表单项选项 */
-interface __dkItemSelectOptions {
+interface dkItemSelectOptions {
     /**选中值 */
     label: string | number;
     /**显示值 */
     value: string | number;
 }
 /**表单实例 */
-interface __dkFormRef {
+interface dkFormRef {
     formModel: any;
     ruleFormRef: FormInstance;
     pRef: any[];
 }
 export type {
-    __dkFormOptions,
-    __dkItemOptions,
-    __dkItemSelectOptions,
-    __dkItemType,
-    __dkFormRef,
+    dkFormOptions,
+    dkItemOptions,
+    dkItemSelectOptions,
+    dkItemType,
+    dkFormRef,
 };

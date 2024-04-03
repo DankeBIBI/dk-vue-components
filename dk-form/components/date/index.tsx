@@ -1,11 +1,11 @@
-import { __dkItemOptions } from "../../type";
+import { dkItemOptions } from "../../type";
 /**
  * @description 日期模块
  * @author Dankebibi
  * @link [email]1580074116@qq.com
  * @date 2024-2-20 11:51:30
  */
-export default (option: __dkItemOptions, vModel: any) => (
+export default (option: dkItemOptions, vModel: any) => (
     <>
         {
             option.type == 'date' ?

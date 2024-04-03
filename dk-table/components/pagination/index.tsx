@@ -1,15 +1,16 @@
-import { __tablePagination } from "../../type"
+import { dkTablePagination } from "../../type"
 
 export default (option:{
-    pagination:Partial<__tablePagination>,
-    init:Function
+    pagination:Partial<dkTablePagination>,
+    init:Function,
+    size:string
 })=>(
     <>
     <el-pagination
 				v-model:current-page={option.pagination.page}
 				v-model:page-size={option.pagination.limit}
 				page-sizes={option.pagination.pageSize}
-				small={false}
+				small={option.size == 'small' ?true:false}
 				disabled={false}
 				background={false}
 				layout="total, sizes, prev, pager, next, jumper"
@@ -19,15 +20,13 @@ export default (option:{
 			/>
     </>
 )
-const handleSizeChange = (val: number,init:Function,option:Partial<__tablePagination>) => {
-    console.log("🚀 -- 》》 ~ val:", val)
+const handleSizeChange = (val: number,init:Function,option:Partial<dkTablePagination>) => {
     init({
         page:option.page,
         limit:option.limit
     })
   }
-  const handleCurrentChange = (val: number,init:Function,option:Partial<__tablePagination>) => {
-    console.log("🚀 -- 》》 ~ val:", val)
+  const handleCurrentChange = (val: number,init:Function,option:Partial<dkTablePagination>) => {
     init({
         page:option.page,
         limit:option.limit

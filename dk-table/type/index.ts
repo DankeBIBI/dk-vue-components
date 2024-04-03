@@ -1,17 +1,17 @@
 import { Ref } from "vue";
-export type __tableOptionsCallback = {
+export type dkTableOptionsCallback = {
     tableData: Ref<any[]> | any[];
-    tableColumns: Ref<__tableColumn[]> | __tableColumn[],
-    init: (e?: __tableInit) => any,
-    loading: __tableLoading,
-    pagination: __tablePagination
+    tableColumns: Ref<dkTableColumn[]> | dkTableColumn[],
+    init: (e?: dkTableInit) => any,
+    loading: dkTableLoading,
+    pagination: dkTablePagination
 }
-export type __tableOptions = () => __tableOptionsCallback
-export type __tableInit = {
+export type dkTableOptions = () => dkTableOptionsCallback
+export type dkTableInit = {
     page: number,
     limit: number
 }
-export type __tableLoading = {
+export type dkTableLoading = {
     loading: boolean,
     background: string,
     tip: string,
@@ -20,13 +20,13 @@ export type __tableLoading = {
         src: string
     }
 }
-export type __tablePagination = {
+export type dkTablePagination = {
     page: number,
     limit: number,
     pageSize: number[],
     total: number,
 }
-export interface __tableColumn {
+export interface dkTableColumn {
     /**	显示的标题 */
     label: string
     /**	字段名称 对应列内容的字段名， 也可以使用 property属性 */
@@ -45,5 +45,5 @@ export interface __tableColumn {
     tooltip?: boolean
     cellRander?: ({ row, column, $index }) => any,
     /**表头对齐方式， 若不设置该项，则使用表格的对齐方式 */
-    align:'left' | 'center' | 'right'
+    align: 'left' | 'center' | 'right'
 }

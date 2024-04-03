@@ -1,4 +1,4 @@
-import { __dkItemOptions, __dkItemSelectOptions } from "../../type";
+import { dkItemOptions, dkItemSelectOptions } from "../../type";
 import { vRef } from "../../../utils/computed";
 /**
  * @description 下拉选择模块
@@ -6,7 +6,7 @@ import { vRef } from "../../../utils/computed";
  * @link [email]1580074116@qq.com
  * @date 2024-2-20 11:51:30
  */
-export default (option: __dkItemOptions, vModel: any) => (
+export default (option: dkItemOptions, vModel: any) => (
     <>
         <el-select
             v-model={vModel[option.prop]}
@@ -15,7 +15,7 @@ export default (option: __dkItemOptions, vModel: any) => (
             style="width: 240px"
         >
             {
-                option?.selectOptions && vRef(option.selectOptions).map((item: __dkItemSelectOptions) => {
+                option?.selectOptions && vRef(option.selectOptions).map((item: dkItemSelectOptions) => {
                     return <el-option
                         label={item.label}
                         value={item.value}

@@ -1,8 +1,8 @@
 import { Ref } from "vue";
-import { __tableColumn } from "../../type";
+import { dkTableColumn } from "../../type";
 import { vRef } from "../../../utils/computed";
 
-export default (option: __tableColumn[] | Ref<__tableColumn[]>) => (
+export default (option: dkTableColumn[] | Ref<dkTableColumn[]>) => (
     <>
         {
             vRef(option).map((item, index) => {
@@ -34,11 +34,5 @@ export default (option: __tableColumn[] | Ref<__tableColumn[]>) => (
     </>
 )
 
-const rander = (scope) => (
-    <>
-        <el-text>12312321</el-text>
-    </>
-
-)
 
 
