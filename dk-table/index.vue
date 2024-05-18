@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { dkTableOptions } from "./type";
+import { size } from "./components/data";
 import elColumn from "./components/column";
 import elPagination from "./components/pagination";
 import elMenu from "./components/menu";
-
 type propType = {
 	tableOptions: dkTableOptions;
 };
@@ -16,7 +16,7 @@ const { tableData, tableColumns, init, loading, pagination } =
 onMounted(() => {
 	// ready();
 });
-const size = ref<"large" | "default" | "small">("default");
+
 function setSize(value) {
 	size.value = value;
 }
@@ -28,8 +28,16 @@ function setSize(value) {
 				:is="
 					elMenu({
 						init,
-                        size,
 						setSize,
+						btns: [
+							{
+								text: '打印',
+								type: 'primary',
+								trigger: () => {    
+									console.log(123);
+								},
+							},
+						],
 					})
 				"
 			/>
@@ -50,7 +58,7 @@ function setSize(value) {
 		</el-table>
 		<div class="dkTable_bottomBar fx_">
 			<div class="dkTable_bottomBar_pagination">
-				<component :is="elPagination({ pagination, init,size })" />
+				<component :is="elPagination({ pagination, init, size })" />
 			</div>
 		</div>
 	</div>
@@ -68,9 +76,13 @@ function setSize(value) {
 	display: flex;
 	flex-direction: column;
 	&_menuBar {
+		width: 100%;
 		margin-bottom: 10px;
 		&_layout {
-			margin-left: auto;
+			width: inherit;
+			.mlAuto {
+				margin-left: auto;
+			}
 			&_btn {
 				margin-right: 10px;
 			}

@@ -5,7 +5,7 @@ import { vRef } from "../../../utils/computed";
 export default (option: dkTableColumn[] | Ref<dkTableColumn[]>) => (
     <>
         {
-            vRef(option).map((item, index) => {
+            vRef<dkTableColumn[]>(option).map((item, index) => {
                 return (
                     <el-table-column
                         key={item.prop + index}

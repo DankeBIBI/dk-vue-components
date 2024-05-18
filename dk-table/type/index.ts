@@ -1,4 +1,7 @@
 import { Ref } from "vue";
+/**默认或者响应式数组 */
+export type defaultOrRefArray<T> = T[] | Ref<T[]>;
+
 export type dkTableOptionsCallback = {
     tableData: Ref<any[]> | any[];
     tableColumns: Ref<dkTableColumn[]> | dkTableColumn[],
@@ -45,5 +48,13 @@ export interface dkTableColumn {
     tooltip?: boolean
     cellRander?: ({ row, column, $index }) => any,
     /**表头对齐方式， 若不设置该项，则使用表格的对齐方式 */
-    align: 'left' | 'center' | 'right'
+    align?: 'left' | 'center' | 'right'
+}
+
+export interface dkTableBtns {
+    type: 'primary' | 'success' | 'warning' | 'danger' | 'info'
+    icon?: string
+    size?: 'large' | 'medium' | 'small' | 'mini'
+    text?: string | number,
+    trigger:Function
 }
