@@ -9,7 +9,7 @@ export const defaultBtn = (options: Partial<dkTableOptionsCallback>) => {
         {
             text: '增加',
             type: 'primary',
-            trigger: options.init,
+            trigger: options.add,
         }
     ] as dkTableBtns[]
 }

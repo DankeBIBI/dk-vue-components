@@ -12,7 +12,7 @@ export function buildFormRule(options: dkFormOptions) {
 	if (list.length == 0) return [];
 	options.forEach((item: dkItemOptions) => {
 		rule[item.prop] = [
-			{ required: true, message: `请输入${item.title}`, trigger: "blur" },
+			{ required: item.required, message: `请输入${item.title}`, trigger: "blur" },
 		];
 	});
 	return rule;

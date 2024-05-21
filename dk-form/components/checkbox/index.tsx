@@ -10,7 +10,7 @@ export default (option: dkItemOptions, vModel: any) => (
     <>
         <el-checkbox-group v-model={vModel[option.prop]}>
             {
-                option?.selectOptions && vRef(option.selectOptions).map((item: dkItemSelectOptions) => {
+                option?.selectOptions && vRef<typeof option.selectOptions>(option.selectOptions).map((item: dkItemSelectOptions) => {
                     return <el-checkbox label={item.value} onClick={() => {
                         option.trigger && option.trigger.change && option.trigger.change({ value: item.value, item })
                     }}>{item.label}</el-checkbox>

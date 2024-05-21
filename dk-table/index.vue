@@ -11,7 +11,7 @@ type propType = {
 const props = withDefaults(defineProps<propType>(), {
 	tableOptions: "" as any,
 });
-const { tableData, tableColumns, init, loading, pagination } =
+const { tableData, tableColumns, init, loading, pagination, add } =
 	props.tableOptions();
 onMounted(() => {
 	// ready();
@@ -28,12 +28,13 @@ function setSize(value) {
 				:is="
 					elMenu({
 						init,
+						add,
 						setSize,
 						btns: [
 							{
 								text: '打印',
 								type: 'primary',
-								trigger: () => {    
+								trigger: () => {
 									console.log(123);
 								},
 							},

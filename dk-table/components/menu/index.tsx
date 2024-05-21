@@ -5,6 +5,7 @@ import { dkTableBtns, dkTableInit } from "../../type";
 import { DKID } from "strap-trousers";
 export default (option: {
     init: (e?: dkTableInit) => any,
+    add: (e?: any) => any,
     setSize: (size: string) => void,
     btns: dkTableBtns[]
 }) => (
@@ -14,6 +15,7 @@ export default (option: {
                 {
                     vRef<dkTableBtns[]>(defaultBtn({
                         init: option.init,
+                        add: option.add
                     })).concat(option.btns).map((item, index) => {
                         return (
                             <el-button size={size.value} type={item.type} onClick={item.trigger} key={index + DKID()}>

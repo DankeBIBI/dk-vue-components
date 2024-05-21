@@ -7,7 +7,8 @@ export type dkTableOptionsCallback = {
     tableColumns: Ref<dkTableColumn[]> | dkTableColumn[],
     init: (e?: dkTableInit) => any,
     loading: dkTableLoading,
-    pagination: dkTablePagination
+    pagination: dkTablePagination,
+    add:(e?: any) => any
 }
 export type dkTableOptions = () => dkTableOptionsCallback
 export type dkTableInit = {
