@@ -1,6 +1,23 @@
 import type { FormInstance, UploadUserFile } from "element-plus";
 /**dk表单类型 */
 type dkFormOptions = dkItemOptions[];
+
+/**dkForm选项映射 */
+export const dkItemOptionMap = {
+    prop: "字段",
+    title: "标题",
+    content: "默认内容",
+    required: "是否必填",
+    type: "dk表单项类型",
+    selectOptions: "选项",
+    placeholder: "占位符",
+    options: "可选配置",
+    trigger: "触发器",
+    upload: "上传配置",
+    size: "尺寸",
+}
+
+
 /**dk表单项类型 */
 interface dkItemOptions {
     /**字段 */
@@ -17,7 +34,10 @@ interface dkItemOptions {
     selectOptions?: dkItemSelectOptions[];
     placeholder?: string;
     /**可选配置 */
-    options?: {};
+    options?: {
+        /**是否禁用 */
+        disabled?: boolean;
+    };
     /**触发器 */
     trigger?: {
         /**当绑定值改变时 */
@@ -41,6 +61,14 @@ interface dkItemOptions {
     };
     /**尺寸 */
     size?: "" | "large" | "default" | "small";
+
+    /**拖拉拽 */
+    name?: string
+    id?: string
+    isClone?: boolean
+    children?: dkFormOptions
+    sourceTarget?: boolean
+    changeBindValueOfKey?: (e) => void
 }
 type dkItemType =
     /**输入框 */

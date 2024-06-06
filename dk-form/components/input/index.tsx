@@ -1,5 +1,6 @@
 import { dkItemOptions } from "../../type";
 import { vRef } from "../../../utils/computed";
+import { changeBindValueOfKey } from "../data";
 /**
  * @description 输入模块
  * @author Dankebibi
@@ -8,8 +9,9 @@ import { vRef } from "../../../utils/computed";
  */
 export default (option: Partial<dkItemOptions>, vModel: any) => (
     <>
-        <el-input size={vRef(option.size)} v-model={vModel[String(option.prop)]} placeholder={option.placeholder ?? "请输入：" + option.title} onInput={(e) => {
+        <el-input disabled={option.options?.disabled} size={vRef(option.size)} v-model={vModel[String(option.prop)]} placeholder={option.placeholder ?? "请输入：" + option.title} onInput={(e) => {
             option.trigger && option.trigger.change && option.trigger.change({ value: e, item: {} })
+            option.sourceTarget && changeBindValueOfKey(option, vModel, e)
         }}></el-input>
     </>
 )
