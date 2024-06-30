@@ -13,10 +13,12 @@ export default (option: dkItemOptions, vModel: any) => (
     <>
         <el-upload
             ref={(e) => setRef(e, option.prop)}
+            disabled={option.options?.disabled}
             file-list={option?.upload?.file_list}
             action={option?.upload?.url}
             list-type="picture-card"
             limit={option?.upload?.limit ?? 9}
+            placeholder={option.placeholder ?? "请输入：" + option.title}
             on-success={(e, a, b) => {
                 return onSuccess(e, option, vModel)
             }

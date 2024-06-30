@@ -2,21 +2,6 @@ import type { FormInstance, UploadUserFile } from "element-plus";
 /**dk表单类型 */
 type dkFormOptions = dkItemOptions[];
 
-/**dkForm选项映射 */
-export const dkItemOptionMap = {
-    prop: "字段",
-    title: "标题",
-    content: "默认内容",
-    required: "是否必填",
-    type: "dk表单项类型",
-    selectOptions: "选项",
-    placeholder: "占位符",
-    options: "可选配置",
-    trigger: "触发器",
-    upload: "上传配置",
-    size: "尺寸",
-}
-
 
 /**dk表单项类型 */
 interface dkItemOptions {

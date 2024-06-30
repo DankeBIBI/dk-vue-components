@@ -10,12 +10,13 @@ export default (option: dkItemOptions, vModel: any) => (
     <>
         <el-select
             v-model={vModel[option.prop]}
+            disabled={option.options?.disabled}
             placeholder={option.placeholder ?? `请选择${option.title}`}
             size={option.size}
             style="width: 240px"
         >
             {
-                option?.selectOptions && vRef(option.selectOptions).map((item: dkItemSelectOptions) => {
+                option?.selectOptions && vRef<typeof option.selectOptions>(option.selectOptions).map((item: dkItemSelectOptions) => {
                     return <el-option
                         label={item.label}
                         value={item.value}

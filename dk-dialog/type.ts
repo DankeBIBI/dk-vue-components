@@ -6,7 +6,7 @@ export type dkDialogDto = {
     /**类型 */
     type: 'default' | 'custom' | 'form'
     /**内容 */
-    content: string | number
+    content?: string | number
     /** */
     ref: Ref<any>
     /**渲染器 */

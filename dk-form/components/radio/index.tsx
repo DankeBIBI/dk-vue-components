@@ -8,9 +8,12 @@ import { vRef } from "../../../utils/computed";
  */
 export default (option: dkItemOptions, vModel: any) => (
     <>
-        <el-radio-group v-model={vModel[option.prop]}>
+        <el-radio-group 
+        disabled={option.options?.disabled} 
+        v-model={vModel[option.prop]}
+        placeholder={option.placeholder ?? "请输入：" + option.title}>
             {
-                option?.selectOptions && vRef(option.selectOptions).map((item: dkItemSelectOptions, index: number) => {
+                option?.selectOptions && vRef<typeof option.selectOptions>(option.selectOptions).map((item: dkItemSelectOptions, index: number) => {
                     return <el-radio label={item.value} onClick={() => {
                         option.trigger && option.trigger.change && option.trigger.change({ value: item.value, item })
                     }}>{item.label}</el-radio>

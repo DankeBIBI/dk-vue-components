@@ -8,7 +8,10 @@ import { vRef } from "../../../utils/computed";
  */
 export default (option: dkItemOptions, vModel: any) => (
     <>
-        <el-checkbox-group v-model={vModel[option.prop]}>
+        <el-checkbox-group
+            disabled={option.options?.disabled}
+            v-model={vModel[option.prop]}
+            placeholder={option.placeholder ?? "请输入：" + option.title}>
             {
                 option?.selectOptions && vRef<typeof option.selectOptions>(option.selectOptions).map((item: dkItemSelectOptions) => {
                     return <el-checkbox label={item.value} onClick={() => {

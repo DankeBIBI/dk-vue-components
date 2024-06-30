@@ -11,8 +11,9 @@ export default (option: dkItemOptions, vModel: any) => (
             option.type == 'date' ?
                 <el-date-picker
                     v-model={vModel[option.prop]}
+                    disabled={option.options?.disabled}
+                    placeholder={option.placeholder ?? "请输入：" + option.title}
                     type="date"
-                    placeholder="Pick a date"
                     onChange={e => {
                         option.trigger && option.trigger.change && option.trigger.change({ value: e, item: option })
                     }}
@@ -22,8 +23,9 @@ export default (option: dkItemOptions, vModel: any) => (
             option.type == 'month' ?
                 <el-date-picker
                     v-model={vModel[option.prop]}
+                    disabled={option.options?.disabled}
+                    placeholder={option.placeholder ?? "请输入：" + option.title}
                     type="month"
-                    placeholder="Pick a month"
                     onChange={e => {
                         option.trigger && option.trigger.change && option.trigger.change({ value: e, item: option })
                     }}
@@ -33,8 +35,9 @@ export default (option: dkItemOptions, vModel: any) => (
             option.type == 'year' ?
                 <el-date-picker
                     v-model={vModel[option.prop]}
+                    disabled={option.options?.disabled}
+                    placeholder={option.placeholder ?? "请输入：" + option.title}
                     type="year"
-                    placeholder="Pick a year"
                     onChange={e => {
                         option.trigger && option.trigger.change && option.trigger.change({ value: e, item: option })
                     }}

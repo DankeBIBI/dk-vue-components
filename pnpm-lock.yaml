@@ -1,0 +1,16 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  dk-vue3-components:
+    specifier: ^1.0.0
+    version: 1.0.0
+
+packages:
+
+  /dk-vue3-components@1.0.0:
+    resolution: {integrity: sha512-g4w5zT8gBSeKew7jeegnKnurSewdYEnPVTXU23bUjcEpQeMY2ydeEg205dNGMiNWp5QmMBGNmpuNL2xw9elXQg==}
+    dev: false
