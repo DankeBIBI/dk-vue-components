@@ -1,6 +1,6 @@
 {
   "name": "dk-vue3-components",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "表单组件、控制台常用组件",
   "main": "index.ts",
   "scripts": {
