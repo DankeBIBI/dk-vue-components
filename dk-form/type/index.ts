@@ -46,6 +46,7 @@ interface dkItemOptions {
     };
     /**尺寸 */
     size?: "" | "large" | "default" | "small";
+    style?: string
 
     /**拖拉拽 */
     name?: string
@@ -85,10 +86,20 @@ interface dkFormRef {
     ruleFormRef: FormInstance;
     pRef: any[];
 }
+/**表单配置 */
+type dkFormPropsType = {
+    options: dkFormOptions;
+    formSize: "" | "large" | "default" | "small";
+    ref: any;
+    sourceTarget: boolean;
+    draggableClassName: string;
+    row?: number;
+};
 export type {
     dkFormOptions,
     dkItemOptions,
     dkItemSelectOptions,
     dkItemType,
     dkFormRef,
+    dkFormPropsType
 };

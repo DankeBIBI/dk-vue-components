@@ -1,15 +1,5 @@
 <script setup lang="ts">
-import { Ref, onMounted } from "vue";
-import { dkDialog, store } from "./rander";
-type propType = {
-	store: any[];
-};
-const props = withDefaults(defineProps<propType>(), {
-	store: "" as any,
-});
-onMounted(() => {
-	store.value = props.store;
-});
+import { dkDialog } from "./rander";
 </script>
 <template>
 	<div class="dkDialog">

@@ -4,20 +4,14 @@ import { ref, reactive } from "vue";
 import { getComponent } from "./components/export.t";
 import { buildFormModel, buildFormRule } from "../utils/rule";
 import { pRef } from "./components/data";
-import { dkFormOptions, dkItemOptions } from "./type";
-type propsType = {
-	options: dkFormOptions;
-	formSize: "" | "large" | "default" | "small";
-	ref: any;
-	sourceTarget: boolean;
-	draggableClassName: string;
-};
-const props = withDefaults(defineProps<propsType>(), {
+import type { dkFormOptions, dkItemOptions, dkFormPropsType } from "./type";
+const props = withDefaults(defineProps<dkFormPropsType>(), {
 	options: () => [] as dkFormOptions,
 	formSize: "default",
 	ref: "" as any,
 	sourceTarget: false,
 	draggableClassName: "",
+	row: 1,
 });
 const formModel = reactive(buildFormModel(props.options));
 const ruleFormRef = ref<any>(null);
@@ -31,7 +25,7 @@ function itemTrigger(item: dkItemOptions) {
 <template>
 	<div class="dk-form" ref="ref">
 		<el-form
-			:class="`${props.draggableClassName}`"
+			:class="`${props.draggableClassName} ${row > 1 ? 'flex_wrap' : ''}`"
 			ref="ruleFormRef"
 			:model="formModel"
 			:rules="rules"
@@ -44,6 +38,7 @@ function itemTrigger(item: dkItemOptions) {
 				class="dk-form_dk-item"
 				v-for="(item, index) in props.options"
 				:key="DKID() + index"
+				:style="`width:${100 / row}%;${item.style}`"
 			>
 				<el-form-item
 					:label="item.title"
@@ -70,4 +65,8 @@ function itemTrigger(item: dkItemOptions) {
 </template>
 <style lang="scss" scoped>
 @import "./style/index.scss";
+.flex_wrap {
+	display: flex;
+	flex-wrap: wrap;
+}
 </style>

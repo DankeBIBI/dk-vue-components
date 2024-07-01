@@ -1,3 +1,4 @@
+import { dkFormPropsType } from "dk-vue3-components"
 import { Ref } from "vue"
 /**弹窗 */
 export type dkDialogDto = {
@@ -12,7 +13,7 @@ export type dkDialogDto = {
     /**渲染器 */
     rander?: any,
     /**参数 */
-    props?: any
+    props?: Partial<dkFormPropsType>
     /**确认 */
     confirm?: (e: {
         /** */
@@ -30,5 +31,6 @@ export type dkDialogDto = {
     style?: {
         borderRadius?: number
         backgroundColor?: number
+        width?: number
     }
 }

@@ -1,12 +1,13 @@
-import { Ref, h, ref } from "vue"
+import { h, ref } from "vue"
 import type { dkDialogDto } from "./type"
 import dkForm from "../dk-form"
 import { dkFormRef } from "../type"
-export const store = ref<dkDialogDto[]>([])
+/**弹窗仓库 */
+export const dkDialogStore = ref<dkDialogDto[]>([])
 export const dkDialog = () => (
     <>
         {
-            store.value.map((item, index) => {
+            dkDialogStore.value.map((item, index) => {
                 return (
                     <el-dialog
                         v-model={item}
@@ -52,11 +53,15 @@ export function addDkDialog(options: dkDialogDto) {
         ...options
     }
     if (type == 'form') data.rander = dkForm
-    store.value.push(data)
+    dkDialogStore.value.push(data)
 }
 /**关闭当前对话框 */
 export function closeDkDialog() {
-    store.value.splice(store.value.length - 1, 1)
+    dkDialogStore.value.splice(dkDialogStore.value.length - 1, 1)
+}
+/**关闭所有对话框 */
+export function closeAllDkDialog() {
+    dkDialogStore.value = []
 }
 /**验证并获取表单数据 */
 export async function getFormParams(ref: dkFormRef) {
@@ -68,6 +73,7 @@ export async function getFormParams(ref: dkFormRef) {
     })
     return data
 }
+/**显示一个提示框 */
 export function showModal(options: Pick<dkDialogDto, "title" | "content" | "cancel" | "confirm">) {
     const showModalRef = ref()
     addDkDialog({
@@ -83,6 +89,7 @@ function buildStyle(item: dkDialogDto) {
     if (!style) return styles
     if (style.borderRadius) styles += `border-radius:${style.borderRadius}px;`
     if (style.backgroundColor) styles += `background-color:${style.backgroundColor};`
+    if (style.width) styles += `width:${style.width}px;`
     return styles
 }
 function setRef(e, item) {
