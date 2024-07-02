@@ -19,10 +19,8 @@ export default (option: dkItemOptions, vModel: any) => (
             list-type="picture-card"
             limit={option?.upload?.limit ?? 9}
             placeholder={option.placeholder ?? "请输入：" + option.title}
-            on-success={(e, a, b) => {
-                return onSuccess(e, option, vModel)
-            }
-            }
+            on-success={(e, a, b) => onSuccess(e, option, vModel)}
+            on-remove={(e, a) => onRemove(e, option, vModel)}
             before-upload={(e) => beforeUpload(e, option)}
         >
             <el-icon><Plus /></el-icon>
@@ -46,4 +44,7 @@ function beforeUpload(e, option: dkItemOptions) {
         showTip('请先配置response()', 'warning')
         return false
     }
+}
+function onRemove(e, option: dkItemOptions, vModel) {
+    vModel[option.prop].splice(vModel[option.prop].findIndex(item => item == e.url), 1)
 }
