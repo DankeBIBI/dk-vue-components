@@ -22,6 +22,7 @@ export default (option: dkItemOptions, vModel: any) => (
             on-success={(e, a, b) => onSuccess(e, option, vModel)}
             on-remove={(e, a) => onRemove(e, option, vModel)}
             before-upload={(e) => beforeUpload(e, option)}
+            data={option?.upload?.data}
         >
             <el-icon><Plus /></el-icon>
         </el-upload>

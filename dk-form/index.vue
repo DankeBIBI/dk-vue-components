@@ -3,6 +3,7 @@ import { DKID } from "strap-trousers";
 import { ref, reactive } from "vue";
 import { getComponent } from "./components/export.t";
 import { buildFormModel, buildFormRule } from "../utils/rule";
+import { checkIsMobile } from "../utils/computed";
 import { pRef } from "./components/data";
 import type { dkFormOptions, dkItemOptions, dkFormPropsType } from "./type";
 const props = withDefaults(defineProps<dkFormPropsType>(), {
@@ -13,6 +14,7 @@ const props = withDefaults(defineProps<dkFormPropsType>(), {
 	draggableClassName: "",
 	row: 1,
 });
+let row = checkIsMobile() ? 1 : props.row;
 const formModel = reactive(buildFormModel(props.options));
 const ruleFormRef = ref<any>(null);
 const rules = ref(buildFormRule(props.options));

@@ -43,6 +43,8 @@ interface dkItemOptions {
         limit: number;
         /**接口返回图片的地址？ */
         response: (e) => string;
+        /**上传附带的数据 */
+        data: any
     };
     /**尺寸 */
     size?: "" | "large" | "default" | "small";

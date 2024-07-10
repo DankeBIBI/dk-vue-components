@@ -32,5 +32,6 @@ export type dkDialogDto = {
         borderRadius?: number
         backgroundColor?: number
         width?: number
+        marginTop?: number
     }
 }
