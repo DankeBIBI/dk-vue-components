@@ -44,7 +44,7 @@ export interface dkTableColumn {
     /**对应列的最小宽度， 对应列的最小宽度， 与 width 的区别是 width 是固定的，min-width 会把剩余宽度按比例分配给设置了 min-width 的列 */
     minWidth?: string | number
     /**列是否固定在左侧或者右侧。 true 表示固定在左侧 */
-    fixed?: true | 'left' | 'right'
+    fixed?: true | false | 'left' | 'right' 
     /**当内容过长被隐藏时显示 tooltip */
     tooltip?: boolean
     cellRander?: ({ row, column, $index }) => any,

@@ -20,13 +20,13 @@ export default (option:{
 			/>
     </>
 )
-const handleSizeChange = (val: number,init:Function,option:Partial<dkTablePagination>) => {
+const handleSizeChange = (_val: number,init:Function,option:Partial<dkTablePagination>) => {
     init({
         page:option.page,
         limit:option.limit
     })
   }
-  const handleCurrentChange = (val: number,init:Function,option:Partial<dkTablePagination>) => {
+  const handleCurrentChange = (_val: number,init:Function,option:Partial<dkTablePagination>) => {
     init({
         page:option.page,
         limit:option.limit
