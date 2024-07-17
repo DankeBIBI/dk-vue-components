@@ -14,20 +14,38 @@ const props = withDefaults(defineProps<dkFormPropsType>(), {
 	draggableClassName: "",
 	row: 1,
 });
-let row = checkIsMobile() ? 1 : props.row;
-const formModel = reactive(buildFormModel(props.options));
+/**表单实例 */
 const ruleFormRef = ref<any>(null);
-const rules = ref(buildFormRule(props.options));
+/**表单规则 */
+const rules = ref();
+/**表单数据 */
+const formModel = ref();
 const emit = defineEmits(["itemTrigger"]);
-defineExpose({ formModel, ruleFormRef, pRef });
 function itemTrigger(item: dkItemOptions) {
 	emit("itemTrigger", item);
 }
+/**监听配置改变 */
+watch(
+	() => props.options,
+	() => {
+		rules.value = buildFormRule(props.options);
+		formModel.value = buildFormModel(props.options,formModel.value);
+	},
+	{
+        /**监听器生成立即执行一次 */
+		immediate: true,
+		deep: true,
+	}
+);
+/**组件对外暴露的参数 */
+defineExpose({ formModel, ruleFormRef, pRef });
 </script>
 <template>
 	<div class="dk-form" ref="ref">
 		<el-form
-			:class="`${props.draggableClassName} ${row > 1 ? 'flex_wrap' : ''}`"
+			:class="`${props.draggableClassName} ${
+				(checkIsMobile() ? 1 : props.row > 1) ? 'flex_wrap' : ''
+			}`"
 			ref="ruleFormRef"
 			:model="formModel"
 			:rules="rules"
@@ -40,7 +58,10 @@ function itemTrigger(item: dkItemOptions) {
 				class="dk-form_dk-item"
 				v-for="(item, index) in props.options"
 				:key="DKID() + index"
-				:style="`width:${100 / row}%;${item.style}`"
+				:style="`width:${100 / (checkIsMobile() ? 1 : props.row)}%;${
+					item.style
+				}`"
+				v-show="!item.hidden"
 			>
 				<el-form-item
 					:label="item.title"
