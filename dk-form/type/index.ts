@@ -18,6 +18,8 @@ interface dkItemOptions {
     /**选项 */
     selectOptions?: dkItemSelectOptions[];
     placeholder?: string;
+    /**隐藏 */
+    hidden?: boolean;
     /**可选配置 */
     options?: {
         /**是否禁用 */
@@ -90,7 +92,7 @@ interface dkFormRef {
 }
 /**表单配置 */
 type dkFormPropsType = {
-    options: dkFormOptions;
+    options: dkFormOptions ;
     formSize: "" | "large" | "default" | "small";
     ref: any;
     sourceTarget: boolean;

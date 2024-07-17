@@ -52,7 +52,7 @@ export function addDkDialog(options: dkDialogDto) {
     const { type } = options
     let data = {
         ...options
-    }
+    } as any
     if (type == 'form') data.rander = dkForm
     dkDialogStore.value.push(data)
 }
@@ -70,6 +70,8 @@ export async function getFormParams(ref: dkFormRef) {
     await ref.ruleFormRef.validate((valid) => {
         if (valid) {
             return data = ref.formModel
+        } else {
+            return data = false
         }
     })
     return data
