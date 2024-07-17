@@ -1,5 +1,5 @@
 import { dkTablePagination } from "../../type"
-
+import {checkIsMobile} from '../../../utils/computed' 
 export default (option:{
     pagination:Partial<dkTablePagination>,
     init:Function,
@@ -10,10 +10,10 @@ export default (option:{
 				v-model:current-page={option.pagination.page}
 				v-model:page-size={option.pagination.limit}
 				page-sizes={option.pagination.pageSize}
-				small={option.size == 'small' ?true:false}
+				small={checkIsMobile()?true:(option.size == 'small' ?true:false)}
 				disabled={false}
 				background={false}
-				layout="total, sizes, prev, pager, next, jumper"
+				layout={`total, ${checkIsMobile()?'':'sizes,'} prev, pager, next, jumper`}
 				total={option.pagination.total}
 				onSizeChange={(e)=>handleSizeChange(e,option.init,option.pagination)}
 				onCurrentChange={(e)=>handleCurrentChange(e,option.init,option.pagination)}
