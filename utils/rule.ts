@@ -34,8 +34,14 @@ export function buildFormModel(options: vRefType<dkFormOptions>, formModel: Obje
         }
     });
     if (formModel) {
+        /**将原有的赋值 */
         for (const k in model) {
             model[k] = formModel[k] ?? model[k];
+        }
+        /**隐藏起来的表单项的值设置为空（将该条数据在数据库中的内容设置为空） */
+        for (const k in formModel) {
+            if (!model[k])
+                model[k] = ''
         }
     }
     return model;
