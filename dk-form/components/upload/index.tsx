@@ -2,6 +2,7 @@ import { Plus } from "@element-plus/icons-vue";
 import { dkItemOptions } from "../../type";
 import { pRef, setRef } from "../data";
 import { showTip } from "@/utils";
+import { DKID } from "strap-trousers";
 
 /**
  * @description 上传模块
@@ -35,6 +36,11 @@ function onSuccess(e, option: dkItemOptions, vModel: any) {
             vModel[option.prop].push(src)
         else
             vModel[option.prop] = src
+        option?.upload.file_list.push({
+            url: src,
+            uid: Number(DKID({ length: 32, hasLowercase: false })),
+            name: DKID({ length: 16 })
+        })
     } else {
         showTip('上传失败', 'error')
         console.log(pRef.value[option.prop])
