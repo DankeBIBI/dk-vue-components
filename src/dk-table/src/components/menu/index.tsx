@@ -1,6 +1,6 @@
 import { Operation, Refresh, Select, SemiSelect } from "@element-plus/icons-vue";
 import { defaultBtn, size } from "../data";
-import { vRef } from "../../../utils/computed";
+import { vRef } from "../../../../utils/computed";
 import { dkTableBtns, dkTableInit } from "../../type";
 import { DKID } from "strap-trousers";
 export default (option: {

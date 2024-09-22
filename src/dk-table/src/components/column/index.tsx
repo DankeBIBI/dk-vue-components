@@ -1,6 +1,6 @@
 import { Ref } from "vue";
 import { dkTableColumn } from "../../type";
-import { checkIsMobile, vRef } from "../../../utils/computed";
+import { checkIsMobile, vRef } from "../../../../utils/computed";
 
 export default (option: dkTableColumn[] | Ref<dkTableColumn[]>) => (
     <>

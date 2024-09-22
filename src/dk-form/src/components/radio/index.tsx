@@ -1,5 +1,5 @@
 import { dkItemOptions, dkItemSelectOptions } from "../../type";
-import { vRef } from "../../../utils/computed";
+import { vRef } from "../../../../utils/computed";
 /**
  * @description 选择模块
  * @author Dankebibi

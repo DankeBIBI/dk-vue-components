@@ -2,8 +2,8 @@
 import { DKID } from "strap-trousers";
 import { ref, reactive } from "vue";
 import { getComponent } from "./components/export.t";
-import { buildFormModel, buildFormRule } from "../utils/rule";
-import { checkIsMobile } from "../utils/computed";
+import { buildFormModel, buildFormRule } from "../../utils/rule";
+import { checkIsMobile } from "../../utils/computed";
 import { pRef } from "./components/data";
 import type { dkFormOptions, dkItemOptions, dkFormPropsType } from "./type";
 const props = withDefaults(defineProps<dkFormPropsType>(), {

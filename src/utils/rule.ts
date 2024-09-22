@@ -1,5 +1,5 @@
-import { dkFormOptions, dkItemOptions } from "../dk-form/type";
-import { vRefType } from "../type";
+import { dkFormOptions, dkItemOptions } from "../dk-form/src/type";
+import { vRefType } from "../../type";
 import { vRef } from "."
 /**生成校验规则 */
 export function buildFormRule(options: vRefType<dkFormOptions>) {

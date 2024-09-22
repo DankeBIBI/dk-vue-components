@@ -1,5 +1,5 @@
 import { dkItemOptions, dkItemSelectOptions } from "../../type";
-import { vRef } from "../../../utils/computed";
+import { vRef } from "../../../../utils/computed";
 /**
  * @description 下拉选择模块
  * @author Dankebibi
@@ -12,8 +12,10 @@ export default (option: dkItemOptions, vModel: any) => (
             v-model={vModel[option.prop]}
             disabled={option.options?.disabled}
             placeholder={option.placeholder ?? `请选择${option.title}`}
-            size={option.size}
-            style="width: 240px"
+            size={vRef(option.size)}
+            // style="width: 240px"
+            // className="w-[100%]"
+
         >
             {
                 option?.selectOptions && vRef<typeof option.selectOptions>(option.selectOptions).map((item: dkItemSelectOptions) => {

@@ -1,8 +1,8 @@
 import { h, ref } from "vue"
 import type { dkDialogDto } from "./type"
-import dkForm from "../dk-form"
-import { dkFormRef } from "../type"
-import { checkIsMobile } from "../utils/computed"
+import { dkForm } from "../../dk-form"
+import { dkFormRef } from "../../../type"
+import { checkIsMobile } from "../../utils/computed"
 /**弹窗仓库 */
 export const dkDialogStore = ref<dkDialogDto[]>([])
 export const dkDialog = () => (
@@ -92,7 +92,7 @@ function buildStyle(item: dkDialogDto) {
     if (!style) return styles
     if (style.borderRadius) styles += `border-radius:${style.borderRadius}px;`
     if (style.backgroundColor) styles += `background-color:${style.backgroundColor};`
-    if (style.marginTop) styles += `marginTop:${style.marginTop}px;`
+    if (style.marginTop) styles += `margi nTop:${style.marginTop}px;`
     if (style.width) styles += `width:${style.width}px;`
     if (checkIsMobile()) styles += `width:${window.innerWidth * .86}px;`
     return styles

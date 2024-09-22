@@ -3,6 +3,7 @@ import { dkItemOptions } from "../../type";
 import { pRef, setRef } from "../data";
 import { showTip } from "@/utils";
 import { DKID } from "strap-trousers";
+import { vRef } from "../../../../utils/computed";
 
 /**
  * @description 上传模块
@@ -21,9 +22,11 @@ export default (option: dkItemOptions, vModel: any) => (
             limit={option?.upload?.limit ?? 9}
             placeholder={option.placeholder ?? "请输入：" + option.title}
             on-success={(e, a, b) => onSuccess(e, option, vModel)}
+            on-error={(e, a) => onError(e, a)}
             on-remove={(e, a) => onRemove(e, option, vModel)}
             before-upload={(e) => beforeUpload(e, option)}
             data={option?.upload?.data}
+            size={vRef(option.size)}
         >
             <el-icon><Plus /></el-icon>
         </el-upload>
@@ -54,4 +57,7 @@ function beforeUpload(e, option: dkItemOptions) {
 }
 function onRemove(e, option: dkItemOptions, vModel) {
     vModel[option.prop].splice(vModel[option.prop].findIndex(item => item == e.url), 1)
+}
+function onError(e, a) {
+    showTip('上传失败', 'error')
 }

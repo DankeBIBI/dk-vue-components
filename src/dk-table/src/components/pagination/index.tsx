@@ -1,5 +1,5 @@
 import { dkTablePagination } from "../../type"
-import {checkIsMobile} from '../../../utils/computed' 
+import {checkIsMobile} from '../../../../utils/computed' 
 export default (option:{
     pagination:Partial<dkTablePagination>,
     init:Function,

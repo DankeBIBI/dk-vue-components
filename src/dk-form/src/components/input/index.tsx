@@ -1,5 +1,5 @@
 import { dkItemOptions } from "../../type";
-import { vRef } from "../../../utils/computed";
+import { vRef } from "../../../../utils/computed";
 import { changeBindValueOfKey } from "../data";
 /**
  * @description 输入模块
