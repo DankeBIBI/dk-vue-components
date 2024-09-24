@@ -3,3 +3,4 @@ export * from "./src/dk-table"
 export * from './src/dk-dialog'
 export * from "./type"
 export * from './src/utils/computed'
+export * from './src/utils'
